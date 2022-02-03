@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -58,4 +61,24 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    
+    /** Relations */
+    public function messagesfromMe() {
+        return $this->hasMany(Message::class, 'from')
+            ->where('to', Auth::user()->id);
+    }
+
+    public function messagesToMew() { 
+        return $this->hasMany(Message::class, 'to')
+            ->where('from', Auth::user()->id);
+    }
+
+    public function messages() {
+        $collectMessages = collect($this->messagesfromMe->merge($this->messagesToMew))->sortBy('created_at');
+        $messages = $collectMessages->keyBy(function($value, $key) {
+            return $value->id;
+        });
+        
+        return $messages->toArray();
+    }
 }
