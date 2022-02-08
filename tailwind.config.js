@@ -14,6 +14,17 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+
+            colors: {
+                whatsApp: {
+                    primary: '#00a884',
+                    secondary: '#26cc64'
+                }
+            },
+            
+            backgroundImage: {
+                'wpp': "url('https://preview.redd.it/qwd83nc4xxf41.jpg?width=640&crop=smart&auto=webp&s=e82767fdf47158e80604f407ce4938e44afc6c25')",
+            }
         },
     },
 

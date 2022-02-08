@@ -19,9 +19,9 @@ createInertiaApp({
             .mixin({
                 methods: {
                     route,
-                    formatDate(value) {
+                    formatDateMessage(value) {
                         if(value)
-                            return moment(value).format('DD/MM/YYYY HH::mm');
+                            return moment(value).format('HH::mm');
                     }
                 }
             })

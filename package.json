@@ -17,15 +17,20 @@
         "@tailwindcss/typography": "^0.5.0",
         "@vue/compiler-sfc": "^3.0.5",
         "axios": "^0.21",
+        "laravel-echo": "^1.11.3",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "postcss-import": "^12.0.1",
+        "pusher-js": "^7.0.6",
         "tailwindcss": "^3.0.0",
         "vue": "^3.0.5",
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
-        "moment": "^2.29.1"
+        "@jamescoyle/vue-icon": "^0.1.2",
+        "@mdi/js": "^6.5.95",
+        "moment": "^2.29.1",
+        "vue-chat-emoji": "^1.1.27"
     }
 }

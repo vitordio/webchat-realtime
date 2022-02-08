@@ -1,3 +1,4 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import '../../node_modules/vue-chat-emoji/dist/vue-chat-emoji.min.css';
